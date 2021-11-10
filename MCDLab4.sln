@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCDLab4", "MCDLab4\MCDLab4.csproj", "{B005B512-0E29-4C55-827E-6A5EB0B1B941}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCDLab4_Lib", "MCDLab4_Lib\MCDLab4_Lib.csproj", "{9730A1BB-ADCC-487A-A88A-4A6A6A4238A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B005B512-0E29-4C55-827E-6A5EB0B1B941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B005B512-0E29-4C55-827E-6A5EB0B1B941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B005B512-0E29-4C55-827E-6A5EB0B1B941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B005B512-0E29-4C55-827E-6A5EB0B1B941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9730A1BB-ADCC-487A-A88A-4A6A6A4238A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9730A1BB-ADCC-487A-A88A-4A6A6A4238A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9730A1BB-ADCC-487A-A88A-4A6A6A4238A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9730A1BB-ADCC-487A-A88A-4A6A6A4238A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED74FEC3-B0F0-41D8-AB14-EAF907DABDD7}
+	EndGlobalSection
+EndGlobal
