@@ -12,15 +12,17 @@ namespace MCDLab4
     {
         static void Main(string[] args)
         {
-            Randomm ran=new Randomm();
+            //оглошение переменных
+            Randomm ran = new Randomm();
             linpoisk linposk = new linpoisk();
             binpos binposk = new binpos();
             int kol, ch1, temp1 = 0, a, b, ob;
             int[] otv = new int[3];
-            while(true)
+            while (true)
             {
                 while (true)
                 {
+
                     Console.Write("Введите длинну массива: ");
                     kol = Convert.ToInt32(Console.ReadLine());
                     if (kol > 0)
@@ -28,6 +30,7 @@ namespace MCDLab4
                     else
                         Console.WriteLine("Неверный ввод. Попробуйте еще раз.");
                 }
+                //создание массива
                 int[] array = new int[kol];
                 while (true)
                 {
@@ -38,11 +41,11 @@ namespace MCDLab4
                     else
                         Console.WriteLine("Неверный ввод. Попробуйте еще раз.");
                 }
-                if(ch1==1)
+                if (ch1 == 1)
                 {
-                    for (int i=0;i<kol;i++)
+                    for (int i = 0; i < kol; i++)
                     {
-                        array[i]= Convert.ToInt32(Console.ReadLine());
+                        array[i] = Convert.ToInt32(Console.ReadLine());
                     }
                 }
                 else
@@ -51,7 +54,7 @@ namespace MCDLab4
                     {
 
 
-                        Console.WriteLine("Введите пределы диапазона генерируемых чисел(прим. 10 5000:");
+                        Console.WriteLine("Введите пределы диапазона генерируемых чисел(прим. 10 5000):");
                         Console.Write("Введите нижний предел(а): ");
                         a = Convert.ToInt32(Console.ReadLine());
                         Console.Write("Введите верхний предел(b): ");
@@ -61,49 +64,53 @@ namespace MCDLab4
                         else
                             Console.WriteLine("Неверный ввод. Попробуйте еще раз.");
                     }
+                    //заполнение массива рандомными числами
                     array = ran.gen_ran(array, kol, a, b);
-                    
+
                 }
-                
+                //вывод массива
                 Console.WriteLine("Заполненный массив:");
-                for(int i=0;i<kol;i++)
+                for (int i = 0; i < kol; i++)
                 {
                     Console.Write("{0} ", array[i]);
                     temp1 = 0;
                     temp1++;
-                    if(temp1==30)
+                    if (temp1 == 30)
                     {
                         temp1 = 0;
                         Console.Write("\n");
                     }
                 }
                 Console.Write("\nВведите образец элемента поиска: ");
-                ob= Convert.ToInt32(Console.ReadLine());
+                ob = Convert.ToInt32(Console.ReadLine());
                 while (true)
                 {
                     Console.Write("Выберите алгоритм поиска:\n1. Линейный поиск(без барьера)\n2. Бинарный поиск\n3. IndexOf()\n");
-                    temp1= Convert.ToInt32(Console.ReadLine());
+                    temp1 = Convert.ToInt32(Console.ReadLine());
                     if (temp1 == 1 || temp1 == 2 || temp1 == 3)
                         break;
                     else
                         Console.WriteLine("Неверный ввод. Попробуйте еще раз.");
                 }
-                switch(temp1)
+
+                switch (temp1)
                 {
                     case 1:
                         {
-                            
-                                otv = linposk.poisk(kol, array, ob);
+                            //вызов линейного поиска и занесение результатов в массив
+                            otv = linposk.poisk(kol, array, ob);
                             if (otv[0] == -1)
                                 Console.WriteLine("Элемент не найден.\n Количество операций сравнений(всех операций): {0}", otv[1]);
                             else
-                                Console.WriteLine("Элемент {0} найден. Индекс искомого элемента {1}.Количество операций сравнений(всех операций): {2}.", ob, otv[1]-1, otv[1]);
+                                Console.WriteLine("Элемент {0} найден. Индекс искомого элемента {1}.Количество операций сравнений(всех операций): {2}.", ob, otv[1] - 1, otv[1]);
                             break;
                         }
                     case 2:
                         {
                             temp1 = 0;
+                            //сортировка массива
                             Array.Sort(array);
+                            //вывод отсортированного массива
                             Console.WriteLine("Отсортированный массив:");
                             for (int i = 0; i < kol; i++)
                             {
@@ -115,18 +122,28 @@ namespace MCDLab4
                                     Console.Write("\n");
                                 }
                             }
+                            //вызов бинарного поиска и занесение результатов в массив
                             otv = binposk.poisk(array, kol, ob);
                             if (otv[2] == -1)
-                                Console.WriteLine("Элемент не найден.\nКоличество сравнений: {0}\nКоличество присваиваний: {1}\nСумма операций: {2}", otv[1], otv[0], otv[0]+otv[1]);
+                                Console.WriteLine("\nЭлемент не найден.\nКоличество сравнений: {0}\nКоличество присваиваний: {1}\nСумма операций: {2}", otv[1], otv[0], otv[0] + otv[1]);
                             else
-                                Console.WriteLine("Элемент {0} найден.\nКоличество сравнений: {1}\nКоличество присваиваний: {2}\nСумма операций: {3}", ob, otv[1], otv[0], otv[0] + otv[1]);
+                                Console.WriteLine("\nЭлемент {0} найден.\nКоличество сравнений: {1}\nКоличество присваиваний: {2}\nСумма операций: {3}", ob, otv[1], otv[0], otv[0] + otv[1]);
                             break;
                         }
                     case 3:
                         {
+                            //начало таймера
+                            Stopwatch stopwatch = new Stopwatch();
+                            stopwatch.Start();
+                            //сортировка методом IndexOf()
                             temp1 = Array.IndexOf(array, ob);
-                            if(temp1!=-1)
-                            Console.WriteLine("Индекс числа {0} первого вхождения: {1}", ob, temp1);
+                            //Конец таймера
+                            stopwatch.Stop();
+                            TimeSpan ts = stopwatch.Elapsed;
+                            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.TotalMilliseconds / 10);
+                            Console.WriteLine("RunTime: " + elapsedTime);
+                            if (temp1 != -1)
+                                Console.WriteLine("Индекс числа {0} первого вхождения: {1}", ob, temp1);
                             else
                                 Console.WriteLine("Число {0} не существует в данном массиве", ob);
                             break;

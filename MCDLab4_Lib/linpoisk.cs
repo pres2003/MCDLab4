@@ -6,6 +6,7 @@ using System.Diagnostics;
 
 namespace MCDLab4_Lib
 {
+    //линейный поиск
     public class linpoisk
     {
 

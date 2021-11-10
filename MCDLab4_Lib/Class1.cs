@@ -7,6 +7,7 @@ using System.Diagnostics;
 
 namespace MCDLab4_Lib
 {
+    //заполнение массива рандомными числами
     public class Randomm
     {
         public int[] gen_ran(int[] array, int kol, int a, int b)
@@ -19,7 +20,7 @@ namespace MCDLab4_Lib
             return array;
         }
     }
-
+    //Бинарный поиск
     public class binpos
     {
 
