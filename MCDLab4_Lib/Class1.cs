@@ -35,7 +35,7 @@ namespace MCDLab4_Lib
             while (true)
             {
                 sr++;
-                if (l < n)
+                if (l <= n)
                 {
                     i = (l + n) / 2;
                     pr++;
